@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BloomLine</title>
+    <link rel="stylesheet" href="./about.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/b54795a7d1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div
+      class="container-fluid justify-content-between bg-body-tertiary d-none d-lg-flex"
+      style="height: 30px"
+    >
+      <div class="d-flex">
+        <a target="_blank" href="#"
+          ><i class="fa-brands fa-instagram fs-4 px-2"></i
+        ></a>
+        <a target="_blank" href="#"
+          ><i class="fa-brands fa-linkedin fs-4 px-2"></i
+        ></a>
+        <a target="_blank" href="#"
+          ><i class="fa-brands fa-youtube fs-4 px-2"></i
+        ></a>
+        <a target="_blank" href="#"
+          ><i class="fa-brands fa-facebook fs-4 px-2"></i
+        ></a>
+      </div>
+      <div>
+        <p class="fs-5">
+          <a href="mailto: bloomlineheadoffice@gmail.com"
+            ><i class="fa-solid fa-envelope"></i
+            >bloomheadoffice@gmail.com/info@bloomlineenginering-consultancey.com</a
+          >
+        </p>
+      </div>
+    </div>
+    <header class="sticky-top">
+      <div class="container-fluid">
+        <div class="navb-logo">
+          <img
+            src="./../../assest/b_logo.png"
+            alt="Logo"
+            class="navbar-brand"
+          />
+        </div>
+        <div class="navb-items d-none d-lg-flex d-xl-flex">
+          <div class="item">
+            <a href="./../index.html">HOME</a>
+          </div>
+          <div class="item">
+            <a href="./../about/about.html">About</a>
+          </div>
+          <div class="item">
+            <a href="./profile/profile.html">Profile</a>
+          </div>
+          <div class="item">
+            <a href="">Services</a>
+          </div>
+          <div class="item">
+            <a href="/location" type="button">Collaborators</a>
+          </div>
+          <div class="item">
+            <a href="#" type="button">News</a>
+          </div>
+          <div class="item">
+            <a href="./contact_us/contact.html" type="button">Contact </a>
+          </div>
+          <div class="item">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              More
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Projects</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="#">Collaborators</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="./gallary/gallary.html"
+                  >Galary</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal_bars_toggler d-flex d-lg-none d-xl-none">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa fa-bars fs-2"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- Modal start-->
+    <div
+      class="modal fade overflow-scroll"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog d-lg-none">
+        <div class="modal-content">
+          <div class="modal-header">
+            <img
+              src="./../assest/coca-cola-png-41661.png"
+              alt="Logo"
+              class="navbar-brand"
+              style="width: 140px; height: 66px"
+            />
+            <button class="btn-close text-white fs-4" data-bs-dismiss="modal">
+              <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-line">
+              <i class="fa-solid fa-home"></i>
+              <a href="./../index.html">HOME</a>
+            </div>
+            <div class="modal-line">
+              <i class="fa-solid fa-bell-concierge"></i>
+              <a href="/service">Service</a>
+            </div>
+            <div class="modal-line">
+              <i class="fa-solid fa-list-check"></i>
+              <a href="/home">Projects</a>
+            </div>
+            <div class="modal-line">
+              <i class="fa-solid fa-circle-info"></i>
+              <a href="/about">About</a>
+            </div>
+            <div class="modal-line">
+              <i class="fa-solid fa-user"></i>
+              <a href="/profile">Profile</a>
+            </div>
+            <div class="modal-line">
+              <i class="fa-solid fa-location-dot"></i>
+              <a href="/">Location</a>
+            </div>
+            <a href="/contact" class="navb-button" type="button"> Contact us</a>
+          </div>
+          <div class="mobile-modal-footer">
+            <a target="_blank" href="#"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a target="_blank" href="#"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+            <a target="_blank" href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a target="_blank" href="#"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal end -->
+    <!-- section  start-->
+    <main>
+      <div class="container-fluid">
+        <div class="home_page_container">
+          <div class="row text-center">
+            <h1 class="text-center text-white-emphasis">About Us</h1>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid p-5 _about">
+        <div class="row p-5">
+          <div class="card p-3">
+            <h1 class="text-primary text-center">About us</h1>
+            <hr />
+            <div class="row d-flex align-items-center justify-content-center">
+              <p class="text-wrap fs-5 px-4">
+                <span class="fs-3 fw-bold text-primary"
+                  >BLOOMLINE Consulting and Trading PLC</span
+                >
+                is a dynamic and innovative construction management consulting
+                company that was founded in August 2023. With a commitment to
+                excellence, we provide a wide range of services in construction
+                supervision and management, contract management, Construction
+                project claim analysis, risk management, training, project
+                planning and evaluation, strategic plan development,
+                Environmental Impact Assessment (EIA) document preparation and
+                design review and adaption.
+              </p>
+            </div>
+            <div class="row contact_link text-center">
+              <a href="#" type="button" style="margin-left: 2rem"
+                >Our Service's</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="containe-fluid mt-5 p-5">
+        <div class="image-container">
+          <div class="image-wrapper">
+            <div class="card shadow-lg border-0 px-3" style="width: 20rem">
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <i class="fa-solid fa-square-check"></i> Best quality
+                </h3>
+                <p class="card-text fs-5 text-center">
+                  We pride ourselves on the quality and accuracy of work we
+                  produce and this continues to be one of the fundamental
+                  principles behind our success as leading Engineering
+                  consultant.
+                </p>
+              </div>
+            </div>
+            <div class="card shadow-lg border-0 px-3" style="width: 20rem">
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <i class="fa-solid fa-star"></i> Top Rated
+                </h3>
+                <p class="card-text fs-5 text-center">
+                  We pride ourselves on the quality and accuracy of work we
+                  produce and this continues to be one of the fundamental
+                  principles behind our success as leading Engineering
+                  consultant.
+                </p>
+              </div>
+            </div>
+            <div class="card shadow-lg border-0 px-3" style="width: 20rem">
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <i class="fa-solid fa-money-check-dollar"></i> Low Cost
+                </h3>
+                <p class="card-text fs-5 text-center">
+                  We pride ourselves on the quality and accuracy of work we
+                  produce and this continues to be one of the fundamental
+                  principles behind our success as leading Engineering
+                  consultant.
+                </p>
+              </div>
+            </div>
+            <div class="card shadow-lg border-0 px-3" style="width: 20rem">
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <i class="fa-solid fa-handshake"></i> Integrity
+                </h3>
+                <p class="card-text fs-5 text-center">
+                  We pride ourselves on the quality and accuracy of work we
+                  produce and this continues to be one of the fundamental
+                  principles behind our success as leading Engineering
+                  consultant.
+                </p>
+              </div>
+            </div>
+            <div class="card shadow-lg border-0 px-3" style="width: 20rem">
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <i class="fa-solid fa-face-smile"></i> Client Satisfaction
+                </h3>
+                <p class="card-text fs-5 text-center">
+                  We pride ourselves on the quality and accuracy of work we
+                  produce and this continues to be one of the fundamental
+                  principles behind our success as leading Engineering
+                  consultant.
+                </p>
+              </div>
+            </div>
+            <div class="card shadow-lg border-0 px-3" style="width: 20rem">
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <i class="fa-solid fa-face-smile"></i> Employee Locality
+                </h3>
+                <p class="card-text fs-5 text-center">
+                  We pride ourselves on the quality and accuracy of work we
+                  produce and this continues to be one of the fundamental
+                  principles behind our success as leading Engineering
+                  consultant.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 
+        Why Choose us???? 
+      -->
+      <div id="blogs" class="container-fluid mt-5 mb-5">
+        <div class="row text-center text-danger">
+          <h2 class="text-primary mt-4 fs-1">Meet Our Teams</h2>
+        </div>
+        <div class="row g-5 justify-content-center p-5">
+          <div class="col-sm-12 col-md-4 col-sm-5">
+            <div class="card">
+              <img
+                src="https://www.mad4wheels.com/img/free-car-images/desktop/20651/audi-r8-coupe-v10-gt-rwd-uk-version-2023-thumb.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h3 class="">Eyuel Frew</h3>
+                <h4 class="card-title text-primary">General Managerr</h4>
+                <p class="fs-5">
+                  <span
+                    ><i class="fa fa-quote-left" aria-hidden="true"></i
+                  ></span>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.Some quick example text to
+                  build on the card title and make up the bulk of the card's
+                  content.
+                  <span
+                    ><i class="fa fa-quote-right" aria-hidden="true"></i
+                  ></span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <div class="card">
+              <img
+                src="https://www.mad4wheels.com/img/free-car-images/desktop/20651/audi-r8-coupe-v10-gt-rwd-uk-version-2023-thumb.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h3 class="">Eyuel Frew</h3>
+                <h4 class="card-title text-primary">
+                  Contract Administration Head
+                </h4>
+                <p class="fs-5">
+                  <span
+                    ><i class="fa fa-quote-left" aria-hidden="true"></i
+                  ></span>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.Some quick example text to
+                  build on the card title and make up the bulk of the card's
+                  content.
+                  <span
+                    ><i class="fa fa-quote-right" aria-hidden="true"></i
+                  ></span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <div class="card">
+              <img
+                src="https://www.mad4wheels.com/img/free-car-images/desktop/20651/audi-r8-coupe-v10-gt-rwd-uk-version-2023-thumb.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h3>Eyuel Frew</h3>
+                <h4 class="card-title text-primary">Deputy Managerr</h4>
+                <p class="fs-5">
+                  <span
+                    ><i class="fa fa-quote-left" aria-hidden="true"></i
+                  ></span>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.Some quick example text to
+                  build on the card title and make up the bulk of the card's
+                  content.
+                  <span
+                    ><i class="fa fa-quote-right" aria-hidden="true"></i
+                  ></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="bg-dark text-white mt-5">
+      <div id="footer">
+        <div class="container-fluid">
+          <div class="row justify-content-center text-center">
+            <div class="col-lg-3 col-md-6 mx-auto mt-5 p-4">
+              <img
+                src="./../../assest/final logo.jpg"
+                alt=""
+                style="
+                  width: 15rem;
+                  border: 2px solid #fff;
+                  background: url(img/tiger.png) no-repeat;
+                  box-shadow: 10px 10px 5px #ccc;
+                  -moz-box-shadow: 10px 10px 5px #ccc;
+                  -webkit-box-shadow: 10px 10px 5px #ccc;
+                  -khtml-box-shadow: 10px 10px 5px #ccc;
+                "
+              />
+              <p class="fs-6 mt-3">
+                BLOOMLINE Consulting and Trading PLC is a professional
+                engineering firm staffed and organized to provide Architectural
+                and Engineering consulting services.
+              </p>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4 col-md-6 mt-5 align-items-center">
+              <h5 class="text-uppercase mb-4 fw-bold text-warning text-start">
+                Our Service
+              </h5>
+              <p class="text-start fs-5">
+                <i class="fa fa-arrow-circle-o-right"></i>
+                <a href="">Risk Management</a>
+              </p>
+              <p class="text-start fs-5">
+                <i class="fa fa-arrow-circle-o-right"></i>
+                <a href="">Training</a>
+              </p>
+              <p class="text-start fs-5">
+                <i class="fa fa-arrow-circle-o-right"></i>
+                <a href="">Project Planning and Evaluation</a>
+              </p>
+              <p class="text-start fs-5">
+                <i class="fa fa-arrow-circle-o-right"></i>
+                <a href="">Advanced Technology</a>
+              </p>
+              <p class="text-start fs-5">
+                <i class="fa fa-arrow-circle-o-right"></i>
+                <a href="">Strategic Plan Development</a>
+              </p>
+              <p class="text-start fs-5">
+                <i class="fa fa-arrow-circle-o-right"></i>
+                <a href="">EIA Document Preparation</a>
+              </p>
+            </div>
+            <div class="col-lg-4 col-md-6 mx-auto">
+              <h4 class="mt-5 text-start mb-3">Contact</h4>
+              <p class="text-start text-center fs-5">
+                <span class="float-start"
+                  ><i class="fa fa-map-marker mx-3"></i
+                ></span>
+                Lamberet Lame Dairy (Shola Milk) Building first floors #108.
+                Yeka, Addis Ababa, Ethiopia
+              </p>
+              <p class="text-start fs-5">
+                <i class="fa fa-phone mx-3"></i>
+                +251928398947/+251928398947
+              </p>
+              <p class="text-start fs-5">
+                <i class="fa fa-envelope mx-3"></i>
+                <a href="">info@bloomlind.gmail.com</a>
+              </p>
+              <p class="text-start mb-5 fs-5">
+                <i class="fa fa-envelope mx-3"></i>
+                <a href="">tame@bloomlind.gmail.com</a>
+              </p>
+              <p class="mt-4 fs-5">
+                <a href="" class="mx-2"><i class="fa fa-facebook"></i></a>
+                <a href="" class="mx-2"><i class="fa fa-linkedin"></i></a>
+                <a href="" class="mx-2"><i class="fa fa-instagram"></i></a>
+                <a href="" class="mx-2"><i class="fa fa-youtube"></i></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container-fluid text-center d-flex h-100 justify-content-center align-items-center bg-primary p-2"
+      >
+        <i class="fa fa-copyright text-white mx-3 fs-4 fw-bold"></i>
+        <span class="text-white fs-4"
+          >BLOOMLINE Consulting and Trading PLC.</span
+        >
+      </div>
+    </footer>
+  </body>
+  <script src="about.js"></script>
+</html>
