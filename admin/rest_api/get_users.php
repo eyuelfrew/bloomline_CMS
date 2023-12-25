@@ -7,7 +7,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 include('control.php');
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 if($requestMethod == "GET"){
-    $usersList = getUsersList();
+    $usersList = getDataBase('users');
     echo $usersList;
 }else{
     $data = [

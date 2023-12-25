@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BloomLine</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/b54795a7d1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid px-5 d-none d-lg-block">
+      <div class="row gx-5">
+        <div class="col-lg-4 text-center py-3">
+          <div class="d-inline-flex align-items-center">
+            <i class="fa fa-map-marker fs-1 text-primary me-3"></i>
+            <div class="text-start">
+              <h6 class="text-uppercase fw-bold">Our Office</h6>
+              <span>Location, Addis Aaba, Ethiopia</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 text-center border-start border-end py-3">
+          <div class="d-inline-flex align-items-center">
+            <i
+              class="fa-solid fa-envelope-open-text fs-1 text-primary me-3"
+            ></i>
+            <div class="text-start">
+              <h6 class="text-uppercase fw-bold">Email Us</h6>
+              <span>info@example.com</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 text-center py-3">
+          <div class="d-inline-flex align-items-center">
+            <i class="fa fa-phone fs-1 text-primary me-3"></i>
+            <div class="text-start">
+              <h6 class="text-uppercase fw-bold">Call Us</h6>
+              <span>+25109111111</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="sticky-top">
+      <div class="container-fluid">
+        <div class="navb-logo">
+          <img src="./../assest/b_logo.png" alt="Logo" class="navbar-brand" />
+        </div>
+        <div class="navb-items d-none d-lg-flex d-xl-flex">
+          <div class="item rounded-5 w-100">
+            <a href="index.html" class="bg-primary p-3 rounded-5 text-white"
+              >HOME</a
+            >
+          </div>
+          <div class="item">
+            <a href="about.html">About</a>
+          </div>
+          <div class="item">
+            <a href="profile.html">Profile</a>
+          </div>
+          <div class="item">
+            <a href="service.html">Services</a>
+          </div>
+          <div class="item">
+            <a href="/" type="button">Collaborators</a>
+          </div>
+          <div class="item">
+            <a href="news.html" type="button">News</a>
+          </div>
+          <div class="item">
+            <a href="contact" type="button">Contact </a>
+          </div>
+          <div class="item">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              More
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Projects</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="#">Collaborators</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="gallary.html">Galary</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal_bars_toggler d-flex d-lg-none d-xl-none">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa fa-bars fs-2"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- Modal start-->
+    <div
+      class="modal fade overflow-scroll"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog d-lg-none">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="text-white">BloomLine</h1>
+            <button class="btn-close text-white fs-4" data-bs-dismiss="modal">
+              <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-line">
+              <i class="fa-solid fa-home"></i>
+              <a href="./../index.html">HOME</a>
+            </div>
+            <div class="modal-line">
+              <i class="fa-solid fa-bell-concierge"></i>
+              <a href="./service.html">Service</a>
+            </div>
+            <div class="modal-line">
+              <i class="fa-solid fa-list-check"></i>
+              <a href="/home">Projects</a>
+            </div>
+            <div class="modal-line">
+              <i class="fa-solid fa-circle-info"></i>
+              <a href="./../about/about.html">About</a>
+            </div>
+            <div class="modal-line">
+              <i class="fa-solid fa-user"></i>
+              <a href="./../profile/profile.html">Profile</a>
+            </div>
+            <div class="modal-line">
+              <i class="fa-solid fa-location-dot"></i>
+              <a href="./../contact_us/contact.html">Location</a>
+            </div>
+            <a
+              href="./../contact_us/contact.html"
+              class="navb-button"
+              type="button"
+            >
+              Contact us</a
+            >
+          </div>
+          <div class="mobile-modal-footer">
+            <a target="_blank" href="#"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a target="_blank" href="#"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+            <a target="_blank" href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a target="_blank" href="#"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal end -->
+    <!-- section  start-->
+    <main>
+      <div class="container-fluid">
+        <div class="service_page_container">
+          <div class="row text-center">
+            <h1 class="text-center text-white-emphasis shadow-lg">Services</h1>
+          </div>
+        </div>
+      </div>
+      <!-- 
+        Why Choose us???? 
+      -->
+      <div id="blogs" class="container mb-5 p-lg-5">
+        <div class="row text-center text-danger">
+          <h2 class="text-primary mt-4 fs-1">
+            What do we do? <i class="fa-solid fa-gear text-danger"></i>
+          </h2>
+        </div>
+        <div class="mt-5">
+          <div id="cardContainer" class="row service_introduction"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- 
+      Footer starts here 
+    -->
+
+    <footer class="text-white mt-5">
+      <div id="footer" class="border-top shadow-lg">
+        <div class="container-fluid">
+          <div class="row text-center">
+            <div class="col-lg-3 col-md-6 p-5 quick_links align-items-center">
+              <h3 class="text-dark">QUICK LINKS</h3>
+              <p class="text-start">
+                <a href="index.html"
+                  ><i class="fa fa-home me-1 text-dark"></i>Home</a
+                >
+              </p>
+              <p class="text-start">
+                <a href="about.html"
+                  ><i class="fa-solid fa-address-card text-dark"></i> About</a
+                >
+              </p>
+              <p class="text-start">
+                <a href="profile.html"
+                  ><i class="fa-solid fa-user me-1 text-dark"></i>Profile</a
+                >
+              </p>
+              <p class="text-start">
+                <a href=""
+                  ><i class="fa-solid fa-bell-concierge me-1 text-dark"></i
+                  >Service</a
+                >
+              </p>
+              <p class="text-start">
+                <a href=""
+                  ><i class="fa-solid fa-newspaper me-1 text-dark"></i>News</a
+                >
+              </p>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4 col-md-6 mt-5 align-items-center">
+              <h5 class="text-uppercase mb-1 fw-bold text-danger text-start">
+                Our Services
+              </h5>
+              <p class="text-start">
+                <i class="fa-regular fa-hand-point-right me-1 text-danger"></i>
+                <a href="./service/service.html"
+                  >Construction Supervision and Management</a
+                >
+              </p>
+              <p class="text-start">
+                <i class="fa-regular fa-hand-point-right me-1 text-danger"></i>
+                <a href="./service/service.html">Construction Management</a>
+              </p>
+              <p class="text-start">
+                <i class="fa-regular fa-hand-point-right me-1 text-danger"></i>
+                <a href="./service/service.html"
+                  >Construction Project Claim Analysis</a
+                >
+              </p>
+              <p class="text-start">
+                <i class="fa-regular fa-hand-point-right me-1 text-danger"></i>
+                <a href="./service/service.html">Risk Management </a>
+              </p>
+              <p class="text-start">
+                <i class="fa-regular fa-hand-point-right me-1 text-danger"></i>
+                <a href="./service/service.html">Training </a>
+              </p>
+              <p class="text-start">
+                <i class="fa-regular fa-hand-point-right me-1 text-danger"></i>
+                <a href="./service/service.html"
+                  >Project Planning and Evaluation
+                </a>
+              </p>
+              <p class="text-start">
+                <i class="fa-regular fa-hand-point-right me-1 text-danger"></i>
+                <a href="./service/service.html">Strategic Plan Development</a>
+              </p>
+              <p class="text-start">
+                <i class="fa-regular fa-hand-point-right me-1 text-danger"></i>
+                <a href="./service/service.html"
+                  >Environmental Impact Assessment (EIA)
+                </a>
+              </p>
+            </div>
+            <div class="col-lg-4 col-md-6 mx-auto _contacts">
+              <h4 class="mt-5 text-start mb-3">Contact</h4>
+              <p class="text-start text-center fs-5">
+                <span class="float-start"
+                  ><i class="fa fa-map-marker mx-3"></i
+                ></span>
+                Addis Ababa (Mexico squear) Building first floors #108. Yeka,
+                Ethiopia
+              </p>
+              <p class="text-start">
+                <i class="fa fa-phone mx-3"></i>
+                +251928398947/+251928398947
+              </p>
+              <p class="text-start fs-5">
+                <i class="fa fa-envelope mx-3"></i>
+                <a href="">info@bloomlind.gmail.com</a>
+              </p>
+              <p class="text-start mb-5 fs-5">
+                <i class="fa fa-envelope mx-3"></i>
+                <a href="">tame@bloomlind.gmail.com</a>
+              </p>
+              <p class="mt-4 fs-5">
+                <a href="" class="mx-2"
+                  ><i class="fa fa-facebook social_icons"></i
+                ></a>
+                <a href="" class="mx-2"
+                  ><i class="fa fa-linkedin social_icons"></i
+                ></a>
+                <a href="" class="mx-2"
+                  ><i class="fa fa-instagram social_icons"></i
+                ></a>
+                <a href="" class="mx-2"
+                  ><i class="fa fa-youtube social_icons"></i
+                ></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container-fluid text-center d-flex justify-content-center align-items-center bg-primary p-2"
+        style="height: 20px"
+      >
+        <i class="fa fa-copyright text-white mx-1 fw-bold"></i>
+        <span style="font-size: 14px"
+          >BLOOMLINE Consulting and Trading PLC.</span
+        >
+      </div>
+    </footer>
+    <!-- 
+      Footer end here 
+    -->
+    <script>
+      const cardDiv = document.getElementById("cardContainer");
+      const getService = () => {
+        axios
+          .get("http://localhost/Bloomline/admin/rest_api/service.php")
+          .then((res) => {
+            const response = res.data;
+            if (response.status === 1) {
+              response.data.forEach((element) => {
+                const newDiv = document.createElement("div");
+                newDiv.className = "col-6";
+                const imgURL = `http://localhost/Bloomline/admin/rest_api/uploads/${element.pic}`;
+                newDiv.innerHTML = `
+              <div class="card w-100">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img
+                      src="${imgURL}"
+                      class="card-img h-100"
+                      alt="Your Image"
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <p class="card-text">
+                        Your text content goes here. You can add more paragraphs
+                        as needed.
+                      </p>
+                    </div>
+                    <div class="card-footer border-0 bg-white">
+                      <a href="./service/view.html?id=${element.id}">Read More</a>
+                    </div>
+                  </div>
+                </div>
+            </div>`;
+                cardDiv.appendChild(newDiv);
+              });
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+      getService();
+    </script>
+  </body>
+</html>

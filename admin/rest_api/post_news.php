@@ -16,8 +16,17 @@ if($requestMethod == 'POST'){
     echo $response;
 }
 else if($requestMethod== 'GET'){
-    $response = getNews();
-    echo $response;
+    if($_GET['id']){
+       $response = getDataByID('news',$_GET['id']);
+       
+    }
+   
+    else if($_GET['recent']){
+        $response = getTop3RecentNews();
+    } else{
+        $response = getDataBase('news');
+    }
+    echo json_encode($response);
 }
  if($requestMethod === 'PUT'){
     $news_id = $_GET['id'];
@@ -41,7 +50,7 @@ if($requestMethod === 'DELETE'){
         echo json_encode($response);
    }
    else{
-    $response = deleteNews($news_id);
+    $response = DeleteWithFiles('news','news_img','uploads',$news_id);
     echo json_encode($response);
    } 
 }

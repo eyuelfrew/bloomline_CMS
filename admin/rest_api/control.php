@@ -56,42 +56,8 @@ function authenticateUser($email, $password){
 
     return false;
 }
-//get users from the data base
-function getUsersList(){
-    global $conn;
-    $query = "SELECT * FROM users";
-    $query_run = mysqli_query($conn, $query);
-    if($query_run){
-        if(mysqli_num_rows($query_run)>0){
-            $res = mysqli_fetch_all($query_run, MYSQLI_ASSOC);
-            $data = [
-            'status'=> 200,
-            'message' => 'users featched successfully!',
-            'data'=>$res
 
-        ];
-        header("HTTP/1.0 200 OK");
-        return json_encode($data);
-        }else{
-            $data = [
-            'status'=> 404,
-            'message' => 'No users Available!',
 
-        ];
-        header("HTTP/1.0 500 No users Available");
-        return json_encode($data);
-        }
-
-    }else{
-        $data = [
-            'status'=> 500,
-            'message' => 'Internal Serve Error!',
-
-        ];
-        header("HTTP/1.0 500 Internal Server Error");
-        return json_encode($data);
-    }
-}
 //post news api
 function postNews( $data){
     global $conn;
@@ -123,23 +89,7 @@ function postNews( $data){
    
 }
 //get all news 
-function getNews(){
-    global $conn;
-    $query = "SELECT * FROM news";
-    $result = mysqli_query($conn,$query);
-    if($result->num_rows>0){
-        while($row = $result->fetch_assoc()){
-            $news[] = $row;
-        }
-        return json_encode($news);
-    }
-    else{
-        $response = ['status'=>0,
-        'Message'=>'No news available!'];
-        return  json_encode($response);
-    }
-    
-}
+
 //update postes or news
 function updateNews($news_id, $data){
     global $conn;
@@ -167,16 +117,389 @@ function updateNews($news_id, $data){
         return $response;
     }
 }
-//Delete single news
-function deleteNews($news_id){
+//add location to loation database
+function addLocation($data){
     global $conn;
-    $qury = "DELETE FROM news WHERE id = '{$news_id}'";
+    $google_map = $data['location'];
+    $query = "SELECT COUNT(*) as total FROM `location`";
+     $result = mysqli_query($conn, $query);
+     if($result){
+        $row = mysqli_fetch_assoc($result);
+        if($row['total'] === "0"){
+            $qu = "INSERT INTO `location` (`google_map`) VALUES ('{$google_map}')";
+            $res = mysqli_query($conn, $qu);
+            if($res){
+                $response = [
+                    'status' => 1,
+                    'message' => "Map Saved"
+                ];
+                return $response;
+            }
+        }
+        else{
+            $response =  [
+                'status' =>0,
+                'Message' =>'Only one map link is supported'
+            ];
+            return $response;
+        }
+     }
+}
+
+
+//get location 
+function getLocation(){
+    global $conn;
+    $query = "SELECT COUNT(*) as total FROM `location`";
+    $result = mysqli_query($conn, $query);
+    if($result){
+        $row = mysqli_fetch_assoc($result);
+        if($row['total'] > 0){
+            $query = "SELECT * FROM `location`";
+            $result = mysqli_query($conn, $query);
+            if($result){
+                $data = mysqli_fetch_assoc($result);
+                $response = [
+                    'status' =>1,
+                    'map' => $data['google_map'],
+                    'id' => $data['id']
+                ];
+                return $response;
+            }
+        }
+        else{
+            $response = [
+                'status'=>0,
+                'message' => 'No map available!'
+            ];
+            return $response;
+        }
+
+    }
+}
+/*
+ for Statistic data
+*/
+function addData($data){
+    global $conn;
+    $cli = $data['cli'];
+    $emp = $data['emp'];
+    $query = "SELECT COUNT(*) as total FROM `statistic`";
+     $result = mysqli_query($conn, $query);
+     if($result){
+        $row = mysqli_fetch_assoc($result);
+        if($row['total'] === "0"){
+            $qu = "INSERT INTO `statistic` (`emp`, `cli`) VALUES ('{$emp}', '{$cli}')";
+            $res = mysqli_query($conn, $qu);
+            if($res){
+                $response = [
+                    'status' => 1,
+                    'message' => "Data Stored!"
+                ];
+                return $response;
+            }
+        }
+        else{
+            $response =  [
+                'status' =>0,
+                'Message' =>'Data is aleardy stored, delete to add new!'
+            ];
+            return $response;
+        }
+     }
+}
+function getStatisctic(){
+    global $conn;
+    $query = "SELECT COUNT(*) as total FROM `statistic`";
+    $result = mysqli_query($conn, $query);
+    if($result){
+        $row = mysqli_fetch_assoc($result);
+        if($row['total'] > 0){
+            $query = "SELECT * FROM `statistic`";
+            $result = mysqli_query($conn, $query);
+            if($result){
+                $data = mysqli_fetch_assoc($result);
+                $response = [
+                    'status' =>1,
+                    'data' => $data
+                ];
+                return $response;
+            }
+        }
+        else{
+            $response = [
+                'status'=>0,
+                'message' => 'No Data available!'
+            ];
+            return $response;
+        }
+
+    }
+}
+
+//post Data in to gallary Data base
+function postGallary($data){
+       global $conn;
+    $disc = $data['disc'];
+    $option = $data['option'];
+    $imageName  = $_FILES["image"]["name"];
+    $tmpName = $_FILES["image"]["tmp_name"];
+    $img_extension = explode('.',$imageName);
+    $name = $img_extension[0]; 
+    $newImageName = $name.'-'.uniqid().'.'.$img_extension[1];
+    move_uploaded_file($tmpName, './gallary/'.$newImageName);
+    $query = "INSERT INTO gallary (image, discription, type)
+            VALUES ('$newImageName', '$disc', '$option')";
+    $result = mysqli_query($conn, $query);
+    if($result){
+        $response = ['status'=>1,
+        'message'=>'New Image Stored!'];
+        return $response;
+        
+    }
+    else{
+        $response = [
+            'status'=>0,
+        ];
+        return $response;
+    }
+}
+
+function trancateGallary($tableName){
+    global $conn;
+    $query = "SELECT COUNT(*) FROM {$tableName}";
+    $result = mysqli_query($conn, $query);
+    if ($result) {
+        $row = mysqli_fetch_array($result);
+        $rowCount = $row[0];
+        if ($rowCount > 0) {
+            $query = "SELECT * FROM `gallary` ";
+            $result = mysqli_query($conn, $query);
+            while($row = $result->fetch_assoc()){
+                $gallarys[] = $row['image'];
+            }
+            foreach($gallarys as $gallary){
+                $full_path = './gallary/'.$gallary;
+                unlink($full_path);
+            }
+            $query = "TRUNCATE TABLE $tableName";
+            $result = mysqli_query($conn, $query);
+            return [
+                'status'=>1,
+                'msg'=>"Table Cleard!"
+            ];
+        } 
+       else {
+            $response = [
+                'status'=>0,
+                'msg'=>'Table is empty'
+                ];
+            return $response;
+         }
+    }
+    else{
+        $response =[
+            'status'=>0,
+            'message'=>'Server Error'
+        ];
+        return $response;
+    }
+}
+//post service
+function postService($data){
+    global $conn;
+    $title = $data['title'];
+    $disc = $data['disc'];
+    $imageName  = $_FILES["pic"]["name"];
+    $tmpName = $_FILES["pic"]["tmp_name"];
+    $img_extension = explode('.',$imageName);
+    $name = $img_extension[0]; 
+    $newImageName = $name.'-'.uniqid().'.'.$img_extension[1];
+    move_uploaded_file($tmpName, './uploads/'.$newImageName);
+    $query = "INSERT INTO service (pic, title, disc)
+            VALUES ('$newImageName', '$title','$disc')";
+    $result = mysqli_query($conn, $query);
+    if($result){
+        $response = ['status'=>1,
+        'message'=>'Service Add!'];
+        return $response;
+        
+    }
+    else{
+        $response = [
+            'status'=>0,
+            'message'=>"Server Error!"
+        ];
+        return $result;
+    }
+    
+}
+
+//truncate service data base
+function truncateTable($tableName){
+    global $conn;
+    $query = "SELECT COUNT(*) FROM {$tableName}";
+    $result = mysqli_query($conn, $query);
+    if ($result) {
+        $row = mysqli_fetch_array($result);
+        $rowCount = $row[0];
+        if ($rowCount > 0) {
+            $query = "SELECT * FROM `service` ";
+            $result = mysqli_query($conn, $query);
+            while($row = $result->fetch_assoc()){
+                $pics[] = $row['pic'];
+            }
+            foreach($pics as $pic){
+                $full_path = './uploads/'.$pic;
+                unlink($full_path);
+            }
+            $query = "TRUNCATE TABLE service";
+            $result = mysqli_query($conn, $query);
+            return [
+                'status'=>1,
+                'msg'=>"Table Cleard!"
+            ];
+        } 
+       else {
+            $response = [
+                'status'=>0,
+                'msg'=>'Table is empty'
+                ];
+            return $response;
+         }
+    }
+    else{
+        $response =[
+            'status'=>0,
+            'message'=>'Server Error'
+        ];
+        return $response;
+    }
+}
+
+//update service
+function updateService($data, $_id){
+    global $conn;
+    $title = $data['title'];
+    $disc = $data['disc'];
+    $query = "SELECT pic FROM service WHERE id ='{$_id}'";
+    $result = mysqli_query($conn, $query);
+    if($result){
+        $pic_name =mysqli_fetch_assoc($result);
+        $pic_directory = './uploads/';
+        $full_path = $pic_directory.$pic_name['pic'];
+        if(file_exists($full_path)){
+            if(unlink($full_path)){
+                $imageName  = $_FILES["pic"]["name"];
+                $tmpName = $_FILES["pic"]["tmp_name"];
+                $img_extension = explode('.',$imageName);
+                $name = $img_extension[0]; 
+                $newImageName = $name.'-'.uniqid().'.'.$img_extension[1];
+                move_uploaded_file($tmpName, './uploads/'.$newImageName);
+                $sql = "UPDATE service SET pic=?, title=?, disc=? WHERE id=?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param('sssi', $newImageName, $title, $disc, $_id);
+                if($stmt->execute()){
+                    $response = [
+                        'status'=>1,
+                        'msg'=>'Data Updated!'
+                    ];
+                    return $response;
+                }else{
+                    $response = [
+                        'status' => 0,
+                        'msg'=>'Server Error'
+                    ];
+                    return $response;
+                }
+            }else{
+                return "Un linkd Faild";
+            }
+        }else{
+            return "no such file";
+        }
+    }else{
+        $response = [
+            'status'=>1,
+            'message'=>'error deleting'
+        ];
+        return $response;
+    }
+}
+//get recent blogs
+function getTop3RecentNews() {
+    global $conn;
+    $query = "SELECT * FROM news ORDER BY post_date,id DESC LIMIT 3";
+    $result = mysqli_query($conn, $query);
+    $rows = array();
+    if ($result) {
+        if (mysqli_num_rows($result) > 0) {
+            $data = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                    $data[] = $row;
+                }
+
+    // Free the result set
+    mysqli_free_result($result);
+        }
+        // return mysqli_free_result($result);
+    } else {
+        echo "<p>Error: " . mysqli_error($conn) . "</p>";
+    }
+    return $data;
+}
+//get data base on table name
+function getDataBase($tableName){
+     global $conn;
+    $query = "SELECT * FROM $tableName";
+    $result = mysqli_query($conn,$query);
+    if($result->num_rows>0){
+        while($row = $result->fetch_assoc()){
+            $data[] = $row;
+        }
+        $response = [
+            'status' =>1,
+            'data'=>$data
+        ];
+        return $response;
+    }
+    else{
+        $response = ['status'=>0,
+        'Message'=>'No Images Available!'];
+        return $response;
+    }
+}
+//get data by id from database
+function getDataByID($table_name,$_ID){
+    global $conn;
+    $query = "SELECT * FROM $table_name WHERE id ='$_ID'";
+    $result = mysqli_query($conn, $query);
+    
+    if($result){
+        $response = [
+            'status'=>1,
+            "data"=>mysqli_fetch_assoc($result)
+        ];
+        return $response;
+    }else{
+        $response = [
+            'status'=>0,
+            'message'=>'Server Error!'
+        ];
+        return $response;
+    }
+
+}
+//delete data from data base by id
+function deleteDataBaseByID($table_name,$id){
+    global $conn;
+    $qury = "DELETE FROM $table_name WHERE id = '{$id}'";
     $result = mysqli_query($conn, $qury);
  
     if($result){
         $response = [
             'status' => 1,
-            'message' => "News Has Been Deleted"
+            'message' => "Data Has Been Deleted"
         ];
         return $response;
     }else{
@@ -187,38 +510,10 @@ function deleteNews($news_id){
         return $response;
     }
 }
-//upload certificates 
-function uploadCertificates($data){
+//deleting data with files
+function DeleteWithFiles($table_name,$col,$path,$data_id){
     global $conn;
-    $disc = $data['disc'];
-    $certi_name = $_FILES['cert_img']['name'];
-    $temp_name = $_FILES['cert_img']['tmp_name'];
-    $extension = explode('.', $certi_name);
-    $img_name = $extension[0];
-    $new_img_name = $img_name.'-'.uniqid().'.'.$extension[1];
-    move_uploaded_file($temp_name,'./certificates/'.$new_img_name);
-    $query = "INSERT INTO `certificates` (`disc`, `certificates`) 
-    VALUES ('{$disc}', '{$new_img_name}')";
-    $result = mysqli_query($conn, $query);
-    if($result){
-        $response =[
-            'status'=>200,
-            'message'=>"Certification Uploaded Well!"
-        ];
-        return $response;
-    }
-    else{
-        $response = [
-            'status' => 405,
-            'message'=>'Server Error!'
-        ];
-        return $response;
-    }
-}
-//update certificates contenet
-function deleteCertificate($cert_id){
-    global $conn;
-    $query = "SELECT certificates FROM certificates WHERE id = {$cert_id}";
+    $query = "SELECT $col FROM $table_name WHERE id = {$data_id}";
     $result = mysqli_query($conn, $query);
     if($result){
         if(mysqli_num_rows($result)>0){
@@ -227,50 +522,68 @@ function deleteCertificate($cert_id){
             //     $certif[] = $row;
             // }
             $pic_name =mysqli_fetch_assoc($result);
-            $pic_directory = './certificates/';
-            $full_path = $pic_directory.$pic_name['certificates'];
+            $pic_directory ='./' . $path . '/';
+            $full_path = $pic_directory.$pic_name[$col];
             if(file_exists($full_path)){
                 if(unlink($full_path)){
-                    $query = "DELETE FROM certificates WHERE id={$cert_id}";
+                    $query = "DELETE FROM $table_name WHERE id={$data_id}";
                     $res = mysqli_query($conn,$query);
                     if($res){
                         $response = [
                             'status' => 1,
-                            'message'=>"Certificate Deleted!"
+                            'message'=>"Data Deleted!"
                         ];
-                        
+                        return $response;
                     }
                 }
                 else{
                     $response = [
-                        'status'=>0
+                        'status'=>0,
+                        'message'=>'File does not exsist'
                     ];
+                    return $response;
                 }
             }
-        return $response;
         }
     else{
         $res = [
             'status'=>0,
-            "message"=>"Bad Request!"
+            "message"=>"No data available!"
         ];
         return $res;
     }
     }
 }
-//get all Certificates
-function getCertificates(){
+//upload projects
+function PostProjects($data){
     global $conn;
-    $query = "SELECT * FROM certificates";
+    $project_name = $data['project_name'];
+    $project_type = $data['project_type'];
+    $location = $data['location'];
+    $project_field = $data['project_field'];
+    $porject_status = intval($data['status']);
+    $imageName  = $_FILES["project_image"]["name"];
+    $tmpName = $_FILES["project_image"]["tmp_name"];
+    $img_extension = explode('.',$imageName);
+    $name = $img_extension[0]; 
+    $newImageName = $name.'-'.uniqid().'.'.$img_extension[1];
+    move_uploaded_file($tmpName, './projects/'.$newImageName);
+    $query = "INSERT INTO projects (image, project_field, project_name, project_type, status,location)
+            VALUES ('$newImageName', '$project_field','$project_name', '$project_type', '$porject_status', '$location')";
     $result = mysqli_query($conn, $query);
     if($result){
-        if(mysqli_num_rows($result) > 0){
-            $certificates = [];
-            while($rows = mysqli_fetch_assoc($result)){
-            $certificates[] = $rows;
-            }
-            return $certificates;
-        }
+        $response = ['status'=>1,
+        'message'=>'Project Add!'];
+        return $response;
+        
     }
+    else{
+        $response = [
+            'status'=>0,
+            'message'=>"Server Error!"
+        ];
+        return $result;
+    }
+    
 }
 ?>

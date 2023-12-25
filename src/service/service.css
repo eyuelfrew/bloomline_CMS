@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Urbanist:ital,wght@0,300;1,200;1,300&display=swap");
+body {
+  font-family: "PT Serif", serif;
+  font-family: "Urbanist", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+.navb-items a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+a:hover {
+  text-decoration: none;
+  color: red;
+}
+header {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  background-color: #efefef;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 25%);
+}
+header .container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .navb-logo img {
+  width: 160px;
+  margin-left: -15%;
+  transition: transform 0.3s ease;
+}
+header .navb-logo img:hover {
+  transform: scale(1.3);
+}
+header .navb-items {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  letter-spacing: 1px;
+}
+header .item {
+  text-align: center;
+  margin-inline: 5%;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #102447;
+  padding: 1px 0;
+  transition: border-bottom border-top 1.5s all;
+  border-bottom: 0px solid #64d6f4;
+  border-top: 0px solid #64d6f4;
+  cursor: pointer;
+}
+header .item_v {
+  text-align: center;
+  margin-inline: 5%;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #102447;
+  padding: 1px 0;
+  transition: border-bottom border-top 1.5s all;
+  border-bottom: 0px solid #64d6f4;
+  border-top: 0px solid #64d6f4;
+  cursor: pointer;
+}
+header .item a {
+  color: rgb(0, 0, 0);
+  font-weight: 800;
+  text-decoration: none;
+}
+header .item_v a {
+  color: rgb(0, 0, 0);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+header .item:hover {
+  border-bottom: 3px solid #64d6f4;
+  border-top: 3px solid #64d6f4;
+}
+header .item_v:hover {
+  border-bottom: 3px solid #64d6f4;
+  border-top: 3px solid #64d6f4;
+}
+main .container-fluid {
+  padding: 0 0px;
+  overflow-x: hidden;
+}
+.modal .modal-dialog {
+  margin: 0;
+  width: 430px;
+}
+@media (max-width: 991px) {
+  .modal .modal-dialog {
+    width: 300px;
+  }
+}
+@media (max-width: 1437px) {
+  .display-contact {
+    display: none;
+  }
+}
+.modal .modal-content {
+  border-radius: 0;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: #102447;
+}
+.modal .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 88%;
+  margin: 0 auto;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #fefefe;
+}
+.modal .modal-header img {
+  width: 140px;
+  margin-top: 17.5px;
+}
+.modal .modal-header .btn-close {
+  background: transparent;
+  opacity: 1;
+}
+.modal .modal-body {
+  width: 88%;
+  margin: 0 auto;
+  padding: 75px 0 0 0;
+  flex: unset;
+}
+.modal .modal-body .modal-line {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 7px 0;
+  margin-bottom: 50px;
+  cursor: pointer;
+  transition: all 0.5ss ease;
+  color: #274d8a;
+  border-bottom: 1px solid #274d8a;
+}
+.modal-line:hover {
+  color: #fefefe;
+  border-bottom: 1px #fefefe;
+}
+
+.modal-line a {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  color: #fefefe;
+  text-decoration: none;
+  padding: 10px;
+}
+.modal-line i {
+  color: rgb(255, 65, 65);
+  font-size: 30px;
+  width: 35px;
+  margin-right: 15px;
+  padding: 0 0 3px 3px;
+}
+.navb-button {
+  width: 100%;
+  height: 47px;
+  background-color: #fefefe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 25px;
+}
+.mobile-modal-footer {
+  width: 87%;
+  margin: 0 auto;
+  padding: 20% 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 25px;
+  color: #274d8a;
+}
+.mobile-modal-footer i:hover {
+  color: #fefefe;
+}
+/* Homa page backgrounds */
+.home_page_container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  width: 100%;
+  background-image: url("./../../assest/standard-quality-control-concept-m.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.home_page_container h1 {
+  font-weight: bold;
+  font-size: 7rem;
+  text-shadow: 5px 5px 50px #dbdbdb;
+  color: rgb(255, 255, 255);
+}
+@media (max-width: 591px) {
+  .home_page_container .page_name h1 {
+    font-size: 4rem;
+  }
+
+  .container-fluid .navb-items {
+    display: none;
+  }
+}
+.container-fluid ._bars_toggler {
+  display: none;
+}
+
+@media (max-width: 1405px) {
+  .container-fluid .navb-items {
+    display: none;
+  }
+  .container-fluid ._bars_toggler {
+    display: flex;
+  }
+}
+/* joel freeeeeeeeeeeeeeeeeee */
+
+.serviceCard.card-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.serviceCard.card-footer a {
+  background: linear-gradient(
+      to right,
+      rgba(100, 200, 200, 1),
+      rgba(100, 200, 200, 1)
+    ),
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgba(255, 0, 180, 1),
+      rgba(0, 100, 200, 1)
+    );
+  background-size: 100% 3px, 0 3px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}
+
+.card .card-footer a:hover {
+  background-size: 0 3px, 100% 3px;
+}
+
+/* Presentational Styles */

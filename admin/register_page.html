@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BloomLine</title>
     <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <script
+      src="https://cdn.tiny.cloud/1/o3yhl2phaulfpadwqfd62ej6j5lrvhvetcfjhng6vae0atom/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     <script
       src="https://kit.fontawesome.com/b54795a7d1.js"
       crossorigin="anonymous"
@@ -25,6 +32,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
 
   <body>
@@ -60,7 +69,7 @@
               class="list-group-item list-group-item-action py-2 ripple"
             >
               <i class="fa-solid fa-certificate me-3"></i
-              ><span> Certificates </span>
+              ><span> Manage News</span>
             </a>
             <a
               id="ex1-tab-3"
@@ -71,8 +80,41 @@
               aria-selected="false"
               href="#"
               class="list-group-item list-group-item-action py-2 ripple"
-              ><i class="fas fa-lock fa-fw me-3"></i
-              ><span>About comany</span></a
+              ><i class="fa-solid fa-image fa-fw me-3"></i
+              ><span>Gallary</span></a
+            ><a
+              id="ex1-tab-4"
+              data-bs-toggle="tab"
+              href="#ex1-tabs-4"
+              role="tab"
+              aria-controls="ex1-tabs-4"
+              aria-selected="false"
+              href="#"
+              class="list-group-item list-group-item-action py-2 ripple"
+              ><i class="fas fa-location-dot fa-fw me-3"></i
+              ><span>Location</span></a
+            ><a
+              id="ex1-tab-4"
+              data-bs-toggle="tab"
+              href="#ex1-tabs-5"
+              role="tab"
+              aria-controls="ex1-tabs-4"
+              aria-selected="false"
+              href="#"
+              class="list-group-item list-group-item-action py-2 ripple"
+              ><i class="fa-solid fa-bell-concierge fa-fw me-3"></i
+              ><span>Services</span></a
+            ><a
+              id="ex1-tab-6"
+              data-bs-toggle="tab"
+              href="#ex1-tabs-6"
+              role="tab"
+              aria-controls="ex1-tabs-6"
+              aria-selected="false"
+              href="#"
+              class="list-group-item list-group-item-action py-2 ripple"
+              ><i class="fa-solid fa-diagram-project fa-fw me-3"></i
+              ><span>Projects</span></a
             >
           </div>
         </div>
@@ -218,15 +260,12 @@
             </li>
           </ul>
         </div>
-        <!-- Container wrapper -->
       </nav>
-      <!-- Navbar -->
     </header>
-    <!--Main Navigation-->
 
-    <!--Main layout-->
     <main style="margin-top: 58px">
       <div class="container tab-content pt-4">
+        <!-- news page post -->
         <div
           class="tab-pane fade show active"
           id="ex1-tabs-1"
@@ -255,6 +294,7 @@
                 <textarea
                   class="form-control"
                   name="news_discription"
+                  id="news_disc"
                   rows="5"
                 ></textarea>
                 <p id="discription_error" class="text-danger"></p>
@@ -290,6 +330,13 @@
             </div>
           </form>
         </div>
+        <!--
+          ends of post news 
+        -->
+
+        <!--
+          Edit cert content
+        -->
         <div
           class="tab-pane fade"
           id="ex1-tabs-2"
@@ -298,7 +345,7 @@
         >
           <div>
             <h1 class="fs-5 fw-semibold">
-              Manage Certificates
+              Manage News
               <button
                 class="btn btn-success"
                 data-bs-toggle="modal"
@@ -307,53 +354,173 @@
                 Add <i class="fa fa-plus"></i>
               </button>
             </h1>
+            <div class="card-body overflow-y-scroll overflow-x-hidden px-5">
+              <!-- <div class="row" id="projectDiv"></div> -->
+            </div>
           </div>
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
+        <!-- 
+          end of manage news 
+        -->
+
+        <!---
+
+          Edit Galary content
+
+        -->
         <div
           class="tab-pane fade"
           id="ex1-tabs-3"
           role="tabpanel"
           aria-labelledby="ex1-tab-3"
         >
-          Tab 3 content
+          <div class="row">
+            <div class="card-title">
+              <div class="card-header bg-white">
+                <h1 class="fs-5 fw-semibold">
+                  Manage Galary's
+                  <button
+                    class="btn btn-success mx-1"
+                    data-bs-toggle="modal"
+                    data-bs-target="#galaryAddModal"
+                  >
+                    Add <i class="fa fa-plus"></i></button
+                  ><button
+                    class="btn btn-danger mx-2"
+                    onclick="clearTable('gallary')"
+                  >
+                    Clear Gallary <i class="fa-solid fa-trash"></i>
+                  </button>
+                </h1>
+              </div>
+              <div class="card-body overflow-y-scroll overflow-x-hidden">
+                <div class="row" id="GallaryCard"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 
+          end of gallary
+         -->
+
+        <!---
+          Edit Contenet of location tab
+        -->
+        <div
+          class="tab-pane fade"
+          id="ex1-tabs-4"
+          role="tabpanel"
+          aria-labelledby="ex1-tab-4"
+        >
+          <div class="row p-2">
+            <div class="card">
+              <div class="card-header bg-white border-bottom-0">
+                <h4>Location</h4>
+                <p>Edit your location here!</p>
+              </div>
+              <div class="card-body">
+                <form id="location_form">
+                  <textarea
+                    name="location_link"
+                    id="google_map"
+                    rows="4"
+                    class="form-control"
+                  ></textarea>
+                  <div class="card-footer bg-white border-top-0">
+                    <button class="btn btn-success" type="submit">
+                      Save location
+                    </button>
+                  </div>
+                </form>
+                <p class="mt-4">
+                  <i class="fa fa-warning fs-3 text-warning"></i>
+                  Please copy the addres link from the google map and paste it
+                  here.
+                </p>
+              </div>
+              <div id="display_map"></div>
+            </div>
+          </div>
+        </div>
+        <!--
+          Service
+        -->
+        <div
+          class="tab-pane fade"
+          id="ex1-tabs-5"
+          role="tabpanel"
+          aria-labelledby="ex1-tab-4"
+        >
+          <div class="row p-2">
+            <div class="card">
+              <div class="card-header bg-white border-bottom-3">
+                <h4>
+                  Services
+                  <button
+                    class="btn btn-danger btn-sm float-end mx-3"
+                    onclick="clearService('service')"
+                  >
+                    Clear Services <i class="fa-solid fa-trash"></i>
+                  </button>
+                  <button
+                    class="btn btn-success float-end btn-sm px-1"
+                    data-bs-toggle="modal"
+                    data-bs-target="#serviceModal"
+                  >
+                    Add New <i class="fa fa-plus"></i>
+                  </button>
+                </h4>
+              </div>
+              <div
+                class="card-body overflow-y-scroll"
+                style="height: 100vh"
+                id="display_service"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="ex1-tabs-6"
+        role="tabpanel"
+        aria-labelledby="ex1-tab-6"
+      >
+        <div class="row px-4">
+          <div class="card">
+            <div class="card-header bg-white border-bottom-3">
+              <h4>
+                Manage Projects
+                <button
+                  class="btn btn-danger btn-sm float-end mx-3"
+                  onclick="clearDatabase('projects')"
+                >
+                  Clear Projects <i class="fa-solid fa-trash"></i>
+                </button>
+                <button
+                  class="btn btn-success float-end btn-sm px-1"
+                  data-bs-toggle="modal"
+                  data-bs-target="#project_modal"
+                >
+                  Add New
+                  <i class="fa fa-plus"></i>
+                </button>
+              </h4>
+            </div>
+            <div class="card-body px-5">
+              <div class="row" id="projectDiv"></div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
-    <!-- Button trigger modal -->
 
-    <!-- Modal -->
+    <!-- 
+      Add Project Modal
+     -->
     <div
       class="modal fade"
-      id="exampleModal"
+      id="project_modal"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -363,7 +530,7 @@
           <div class="modal-header">
             <div class="row">
               <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
-                Add Certificates
+                Add Project
               </h1>
             </div>
             <button
@@ -374,25 +541,79 @@
             ></button>
           </div>
           <div class="modal-body">
-            <form id="Cert_form">
+            <form id="project_form">
               <div>
-                <label for="certificate">Certificate File</label>
+                <label for="certificate">Project Image</label>
                 <input
                   type="file"
                   class="form-control"
-                  name="cert_photo"
-                  id="cert_photo"
-                  placeholder="seelct certificate"
+                  name="project_img"
+                  id="project_img"
+                  placeholder="Choose picture"
                 />
               </div>
               <div>
-                <label for="certificate">Discription</label>
+                <label for="certificate">Project Name</label>
                 <input
-                  type="test"
+                  type="text"
                   class="form-control"
-                  name="cert_disc"
-                  id="certificate"
-                  placeholder="certificate discription"
+                  name="project_name"
+                  id="project_name"
+                  placeholder="project name"
+                />
+              </div>
+              <div>
+                <label for="project_location"></label>
+                <input
+                  type="text"
+                  id="project_location"
+                  name="project_location"
+                  placeholder="project location separated by comma"
+                />
+              </div>
+              <div>
+                <label for="certificate">Project Field</label>
+                <select
+                  class="form-select"
+                  id="project_field"
+                  aria-label="Select Field"
+                >
+                  <option selected>Choose Field</option>
+                  <option value="road">Road Project</option>
+                  <option value="bldg">Building Project</option>
+                  <option value="water">
+                    Water work and irrigation project
+                  </option>
+                </select>
+              </div>
+              <div>
+                <label for="certificate">Project Type</label>
+                <select
+                  class="form-select"
+                  id="project_type"
+                  aria-label="Select option"
+                  required
+                >
+                  <option selected>Choose Type</option>
+                  <option value="cms">UCMS</option>
+                  <option value="rmd">URMD</option>
+                  <option value="completed">COMPLETED</option>
+                </select>
+              </div>
+              <div>
+                <label for="status"
+                  >Status
+                  <span class="text-info"
+                    >leave empty if project is completed or under research</span
+                  ></label
+                >
+                <input
+                  class="form-control"
+                  type="number"
+                  name="status"
+                  id="status"
+                  min="0"
+                  max="100"
                 />
               </div>
               <div class="modal-footer">
@@ -410,9 +631,230 @@
         </div>
       </div>
     </div>
-    <!--Main layout-->
+    <!--
+      
+      Add Gallary Modal
+    
+    -->
+    <div
+      class="modal fade"
+      id="galaryAddModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="row">
+              <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+                Add Gallary
+              </h1>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="gallary_form">
+              <div>
+                <label for="image">Upload Image</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  name="gallary_pic"
+                  id="gallary_pic"
+                  placeholder="choose image"
+                />
+              </div>
+              <div>
+                <label for="certificate">Discription</label>
+                <input
+                  type="test"
+                  class="form-control"
+                  name="gallary_disc"
+                  id="gallary_disc"
+                  placeholder="about the picture"
+                />
+              </div>
+              <div>
+                <label for="certificate">choose type</label>
+                <select
+                  class="form-select"
+                  id="opt_select"
+                  aria-label="Select option"
+                >
+                  <option selected>Choose option</option>
+                  <option value="project">Project</option>
+                  <option value="designe">Designe</option>
+                  <option value="celebration">Celebraion</option>
+                  <option value="meeting">Meeting</option>
+                  <option value="certificate">certificate</option>
+                </select>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
+      create service modal
+    -->
+    <div
+      class="modal fade"
+      id="serviceModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="row">
+              <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+                Add Service
+              </h1>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="service_post_form">
+              <div>
+                <label for="image">Upload picture</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  name="service_pic"
+                  id="service_pic"
+                  placeholder="choose image"
+                />
+              </div>
+              <div>
+                <label for="certificate">Discription</label>
+                <input
+                  type="test"
+                  class="form-control"
+                  name="service_title"
+                  id="service_title"
+                  placeholder="Service Discription"
+                />
+              </div>
+              <div class="mt-3">
+                <label for="">Service Discription</label>
+                <textarea
+                  name="service_disc"
+                  id="service_disc"
+                  class="form-control"
+                ></textarea>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
+      edit Service modal
+    -->
+    <div
+      class="modal fade"
+      id="editServiceModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="row">
+              <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+                Add Service
+              </h1>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="service_edit_form">
+              <div>
+                <label for="image" class="text-danger"
+                  >upload the photo here prev or new</label
+                >
+                <input
+                  type="file"
+                  class="form-control"
+                  name="edit_service_pic"
+                  id="edit_service_pic"
+                  placeholder="choose image"
+                />
+              </div>
+              <div>
+                <label for="certificate">Title</label>
+                <input
+                  type="test"
+                  class="form-control"
+                  name="edit_service_title"
+                  id="edit_service_title"
+                  placeholder="Service Discription"
+                />
+              </div>
+              <div class="mt-3">
+                <label for="">Service Discription</label>
+                <textarea
+                  name="edit_service_disc"
+                  id="edit_service_disc"
+                  class="form-control"
+                ></textarea>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
-  <script src="./main.js"></script>
+
+  <script src="./admin_side.js"></script>
   <style>
     body {
       background-color: #fbfbfb;

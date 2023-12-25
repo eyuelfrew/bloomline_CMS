@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BloomLine</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script
+      src="https://kit.fontawesome.com/b54795a7d1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="container-fluid px-5 d-none d-lg-block">
+      <div class="row gx-5">
+        <div class="col-lg-4 text-center py-3">
+          <div class="d-inline-flex align-items-center">
+            <i class="fa fa-map-marker fs-1 text-primary me-3"></i>
+            <div class="text-start">
+              <h6 class="text-uppercase fw-bold">Our Office</h6>
+              <span>Location, Addis Aaba, Ethiopia</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 text-center border-start border-end py-3">
+          <div class="d-inline-flex align-items-center">
+            <i
+              class="fa-solid fa-envelope-open-text fs-1 text-primary me-3"
+            ></i>
+            <div class="text-start">
+              <h6 class="text-uppercase fw-bold">Email Us</h6>
+              <span>info@example.com</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 text-center py-3">
+          <div class="d-inline-flex align-items-center">
+            <i class="fa fa-phone fs-1 text-primary me-3"></i>
+            <div class="text-start">
+              <h6 class="text-uppercase fw-bold">Call Us</h6>
+              <span>+25109111111</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="sticky-top">
+      <div class="container-fluid">
+        <div class="navb-logo">
+          <img src="./../assest/b_logo.png" alt="Logo" class="navbar-brand" />
+        </div>
+        <div class="navb-items d-none d-lg-flex d-xl-flex">
+          <div class="item rounded-5 w-100">
+            <a href="index.html " class="bg-primary p-3 rounded-5 text-white"
+              >HOME</a
+            >
+          </div>
+          <div class="item">
+            <a href="about.html">About</a>
+          </div>
+          <div class="item">
+            <a href="profile.html" class="nav-link">Profile</a>
+          </div>
+          <div class="item">
+            <a href="service.html">Services</a>
+          </div>
+          <div class="item">
+            <a href="./../colabs/colabs.html" type="button">Collaborators</a>
+          </div>
+          <div class="item">
+            <a href="./../news/news.html" type="button">News</a>
+          </div>
+          <div class="item">
+            <a href="./../contact_us/contact.html" type="button">Contact </a>
+          </div>
+          <div class="item">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              More
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Projects</a></li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li><a class="dropdown-item" href="#">Collaborators</a></li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item" href="./../gallary/gallary.html"
+                  >Galary</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal_bars_toggler d-flex d-lg-none d-xl-none">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa fa-bars fs-2"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- Modal start-->
+    <div
+      class="modal fade overflow-scroll"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog d-lg-none">
+        <div class="modal-content">
+          <div class="modal-header">
+            <img
+              src="./../assest/b_logo.png"
+              alt="Logo"
+              class="navbar-brand"
+              style="width: 140px; height: 66px"
+            />
+            <button class="btn-close text-white fs-4" data-bs-dismiss="modal">
+              <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-line">
+              <i class="fa-solid fa-home"></i>
+              <a href="./../index.html">HOME</a>
+            </div>
+            <div class="modal-line">
+              <i class="fa-solid fa-bell-concierge"></i>
+              <a href="./../service/service.html">Service</a>
+            </div>
+            <div class="modal-line">
+              <i class="fa-solid fa-list-check"></i>
+              <a href="/home">Projects</a>
+            </div>
+            <div class="modal-line">
+              <i class="fa-solid fa-circle-info"></i>
+              <a href="/about">About</a>
+            </div>
+            <div class="modal-line">
+              <i class="fa-solid fa-user"></i>
+              <a href="/profile">Profile</a>
+            </div>
+            <div class="modal-line">
+              <i class="fa-solid fa-location-dot"></i>
+              <a href="/">Location</a>
+            </div>
+            <a href="/contact" class="navb-button" type="button"> Contact us</a>
+          </div>
+          <div class="mobile-modal-footer">
+            <a target="_blank" href="#"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a target="_blank" href="#"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+            <a target="_blank" href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a target="_blank" href="#"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal end -->
+    <!-- section  start-->
+    <main>
+      <div class="container-fluid">
+        <div class="profile_page_container">
+          <div class="row text-center">
+            <h3 class="text-white-emphasis">Our Vision</h3>
+          </div>
+        </div>
+        <div
+          class="landin_page d-lg-flex justify-content-center align-items-center"
+        ></div>
+      </div>
+      <!-- 
+        Why Choose us???? 
+      -->
+      <div class="container-fluid _vission px-5">
+        <div class="row">
+          <h1 class="text-center title border-5 text-primary">
+            Our Vision, Mission and Core Values
+          </h1>
+        </div>
+        <div class="_profile px-5">
+          <div class="row mt-5 mb-5">
+            <div class="card">
+              <div class="card-title">
+                <h3>Our Mission</h3>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <p class="fs-5">
+                    <i class="fa-solid fa-arrow-circle-right"></i>
+                    Meet global and national standards and provide technological
+                    innovation for premium value in engineering service reliable
+                    results.
+                  </p>
+                </div>
+                <div class="row">
+                  <p class="fs-5">
+                    <i class="fa-solid fa-arrow-circle-right"></i>
+                    Aims to become a leading engineering consultant in Ethiopia
+                    in 2023 that provides high quality professional service to
+                    employers.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-5 mb-5">
+            <div class="card">
+              <div class="card-title">
+                <h3>Our Mission</h3>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <p class="fs-5">
+                    <i class="fa-solid fa-arrow-circle-right"></i>
+                    Meet global and national standards and provide technological
+                    innovation for premium value in engineering service reliable
+                    results.
+                  </p>
+                </div>
+                <div class="row">
+                  <p class="fs-5">
+                    <i class="fa-solid fa-arrow-circle-right"></i>
+                    Aims to become a leading engineering consultant in Ethiopia
+                    in 2023 that provides high quality professional service to
+                    employers.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-5 mb-5">
+            <div class="card">
+              <div class="card-title">
+                <h3>Our Mission</h3>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <p class="fs-5">
+                    <i class="fa-solid fa-arrow-circle-right"></i>
+                    Meet global and national standards and provide technological
+                    innovation for premium value in engineering service reliable
+                    results.
+                  </p>
+                </div>
+                <div class="row">
+                  <p class="fs-5">
+                    <i class="fa-solid fa-arrow-circle-right"></i>
+                    Aims to become a leading engineering consultant in Ethiopia
+                    in 2023 that provides high quality professional service to
+                    employers.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--
+        Footer
+    -->
+    <footer class="text-white mt-5">
+      <div id="footer" class="border-top shadow-lg">
+        <div class="container-fluid">
+          <div class="row text-center">
+            <div class="col-lg-3 col-md-6 p-5 quick_links align-items-center">
+              <h3 class="text-dark">QUICK LINKS</h3>
+              <p class="text-start">
+                <a href="index.html"
+                  ><i class="fa fa-home me-1 text-dark"></i>Home</a
+                >
+              </p>
+              <p class="text-start">
+                <a href="about.html"
+                  ><i class="fa-solid fa-address-card text-dark"></i> About</a
+                >
+              </p>
+              <p class="text-start">
+                <a href="profile.html"
+                  ><i class="fa-solid fa-user me-1 text-dark"></i>Profile</a
+                >
+              </p>
+              <p class="text-start">
+                <a href=""
+                  ><i class="fa-solid fa-bell-concierge me-1 text-dark"></i
+                  >Service</a
+                >
+              </p>
+              <p class="text-start">
+                <a href=""
+                  ><i class="fa-solid fa-newspaper me-1 text-dark"></i>News</a
+                >
+              </p>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4 col-md-6 mt-5 align-items-center">
+              <h5 class="text-uppercase mb-1 fw-bold text-danger text-start">
+                Our Services
+              </h5>
+              <p class="text-start">
+                <i class="fa-regular fa-hand-point-right me-1 text-danger"></i>
+                <a href="./service/service.html"
+                  >Construction Supervision and Management</a
+                >
+              </p>
+              <p class="text-start">
+                <i class="fa-regular fa-hand-point-right me-1 text-danger"></i>
+                <a href="./service/service.html">Construction Management</a>
+              </p>
+              <p class="text-start">
+                <i class="fa-regular fa-hand-point-right me-1 text-danger"></i>
+                <a href="./service/service.html"
+                  >Construction Project Claim Analysis</a
+                >
+              </p>
+              <p class="text-start">
+                <i class="fa-regular fa-hand-point-right me-1 text-danger"></i>
+                <a href="./service/service.html">Risk Management </a>
+              </p>
+              <p class="text-start">
+                <i class="fa-regular fa-hand-point-right me-1 text-danger"></i>
+                <a href="./service/service.html">Training </a>
+              </p>
+              <p class="text-start">
+                <i class="fa-regular fa-hand-point-right me-1 text-danger"></i>
+                <a href="./service/service.html"
+                  >Project Planning and Evaluation
+                </a>
+              </p>
+              <p class="text-start">
+                <i class="fa-regular fa-hand-point-right me-1 text-danger"></i>
+                <a href="./service/service.html">Strategic Plan Development</a>
+              </p>
+              <p class="text-start">
+                <i class="fa-regular fa-hand-point-right me-1 text-danger"></i>
+                <a href="./service/service.html"
+                  >Environmental Impact Assessment (EIA)
+                </a>
+              </p>
+            </div>
+            <div class="col-lg-4 col-md-6 mx-auto _contacts">
+              <h4 class="mt-5 text-start mb-3">Contact</h4>
+              <p class="text-start text-center fs-5">
+                <span class="float-start"
+                  ><i class="fa fa-map-marker mx-3"></i
+                ></span>
+                Addis Ababa (Mexico squear) Building first floors #108. Yeka,
+                Ethiopia
+              </p>
+              <p class="text-start">
+                <i class="fa fa-phone mx-3"></i>
+                +251928398947/+251928398947
+              </p>
+              <p class="text-start fs-5">
+                <i class="fa fa-envelope mx-3"></i>
+                <a href="">info@bloomlind.gmail.com</a>
+              </p>
+              <p class="text-start mb-5 fs-5">
+                <i class="fa fa-envelope mx-3"></i>
+                <a href="">tame@bloomlind.gmail.com</a>
+              </p>
+              <p class="mt-4 fs-5">
+                <a href="" class="mx-2"
+                  ><i class="fa fa-facebook social_icons"></i
+                ></a>
+                <a href="" class="mx-2"
+                  ><i class="fa fa-linkedin social_icons"></i
+                ></a>
+                <a href="" class="mx-2"
+                  ><i class="fa fa-instagram social_icons"></i
+                ></a>
+                <a href="" class="mx-2"
+                  ><i class="fa fa-youtube social_icons"></i
+                ></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container-fluid text-center d-flex justify-content-center align-items-center bg-primary p-2"
+        style="height: 20px"
+      >
+        <i class="fa fa-copyright text-white mx-1 fw-bold"></i>
+        <span style="font-size: 14px"
+          >BLOOMLINE Consulting and Trading PLC.</span
+        >
+      </div>
+    </footer>
+  </body>
+  <script src="./profile.js"></script>
+</html>

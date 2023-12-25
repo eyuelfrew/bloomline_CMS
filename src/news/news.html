@@ -27,31 +27,37 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div
-      class="container-fluid justify-content-between bg-body-tertiary d-none d-lg-flex"
-      style="height: 30px"
-    >
-      <div class="d-flex">
-        <a target="_blank" href="#"
-          ><i class="fa-brands fa-instagram fs-4 px-2"></i
-        ></a>
-        <a target="_blank" href="#"
-          ><i class="fa-brands fa-linkedin fs-4 px-2"></i
-        ></a>
-        <a target="_blank" href="#"
-          ><i class="fa-brands fa-youtube fs-4 px-2"></i
-        ></a>
-        <a target="_blank" href="#"
-          ><i class="fa-brands fa-facebook fs-4 px-2"></i
-        ></a>
-      </div>
-      <div>
-        <p class="fs-5">
-          <a href="mailto: bloomlineheadoffice@gmail.com"
-            ><i class="fa-solid fa-envelope"></i
-            >bloomheadoffice@gmail.com/info@bloomlineenginering-consultancey.com</a
-          >
-        </p>
+    <div class="container-fluid px-5 d-none d-lg-block">
+      <div class="row gx-5">
+        <div class="col-lg-4 text-center py-3">
+          <div class="d-inline-flex align-items-center">
+            <i class="fa fa-map-marker fs-1 text-primary me-3"></i>
+            <div class="text-start">
+              <h6 class="text-uppercase fw-bold">Our Office</h6>
+              <span>Location, Addis Aaba, Ethiopia</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 text-center border-start border-end py-3">
+          <div class="d-inline-flex align-items-center">
+            <i
+              class="fa-solid fa-envelope-open-text fs-1 text-primary me-3"
+            ></i>
+            <div class="text-start">
+              <h6 class="text-uppercase fw-bold">Email Us</h6>
+              <span>info@example.com</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 text-center py-3">
+          <div class="d-inline-flex align-items-center">
+            <i class="fa fa-phone fs-1 text-primary me-3"></i>
+            <div class="text-start">
+              <h6 class="text-uppercase fw-bold">Call Us</h6>
+              <span>+25109111111</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <header class="sticky-top">
@@ -64,26 +70,28 @@
           />
         </div>
         <div class="navb-items d-none d-lg-flex d-xl-flex">
-          <div class="item">
-            <a href="./../index.html">HOME</a>
+          <div class="item rounded-5 w-100">
+            <a href="./../index.html " class="bg-primary p-3 rounded-5 text-white"
+              >HOME</a
+            >
           </div>
           <div class="item">
             <a href="./../about/about.html">About</a>
           </div>
           <div class="item">
-            <a href="./profile/profile.html">Profile</a>
+            <a href="./../profile/profile.html">Profile</a>
           </div>
           <div class="item">
-            <a href="">Services</a>
+            <a href="./../service/service.html">Services</a>
           </div>
           <div class="item">
-            <a href="/location" type="button">Collaborators</a>
+            <a href="./../colabs/colabs.html" type="button">Collaborators</a>
           </div>
           <div class="item">
             <a href="#" type="button">News</a>
           </div>
           <div class="item">
-            <a href="./contact_us/contact.html" type="button">Contact </a>
+            <a href="./../contact_us/contact.html" type="button">Contact </a>
           </div>
           <div class="item">
             <a
@@ -101,7 +109,7 @@
               <li><a class="dropdown-item" href="#">Collaborators</a></li>
               <li><hr class="dropdown-divider" /></li>
               <li>
-                <a class="dropdown-item" href="./gallary/gallary.html"
+                <a class="dropdown-item" href="./../gallary/gallary.html"
                   >Galary</a
                 >
               </li>
@@ -190,13 +198,13 @@
       <!-- 
         Why Choose us???? 
       -->
-      <div id="blogs" class="container-fluid mb-5">
+      <div id="blogs" class="container mb-5 p-lg-5">
         <div class="row text-center text-danger">
           <h2 class="text-primary mt-4 fs-1">
             Our daily news <i class="fa-solid fa-newspaper"></i>
           </h2>
         </div>
-        <div id="cardContainer" class="row p-5"></div>
+        <div id="cardContainer" class="row"></div>
       </div>
     </main>
     <footer class="bg-dark text-white mt-5">
@@ -210,7 +218,7 @@
                 style="
                   width: 15rem;
                   border: 2px solid #fff;
-                  background: url(img/tiger.png) no-repeat;
+                  background: no-repeat;
                   box-shadow: 10px 10px 5px #ccc;
                   -moz-box-shadow: 10px 10px 5px #ccc;
                   -webkit-box-shadow: 10px 10px 5px #ccc;
@@ -224,36 +232,15 @@
               </p>
             </div>
             <div class="col-lg-1"></div>
-            <div class="col-lg-4 col-md-6 mt-5 align-items-center">
+            <div
+              class="col-lg-4 col-md-6 mt-5 align-items-center"
+              id="serviceLinkList"
+            >
               <h5 class="text-uppercase mb-4 fw-bold text-warning text-start">
                 Our Service
               </h5>
-              <p class="text-start fs-5">
-                <i class="fa fa-arrow-circle-o-right"></i>
-                <a href="">Risk Management</a>
-              </p>
-              <p class="text-start fs-5">
-                <i class="fa fa-arrow-circle-o-right"></i>
-                <a href="">Training</a>
-              </p>
-              <p class="text-start fs-5">
-                <i class="fa fa-arrow-circle-o-right"></i>
-                <a href="">Project Planning and Evaluation</a>
-              </p>
-              <p class="text-start fs-5">
-                <i class="fa fa-arrow-circle-o-right"></i>
-                <a href="">Advanced Technology</a>
-              </p>
-              <p class="text-start fs-5">
-                <i class="fa fa-arrow-circle-o-right"></i>
-                <a href="">Strategic Plan Development</a>
-              </p>
-              <p class="text-start fs-5">
-                <i class="fa fa-arrow-circle-o-right"></i>
-                <a href="">EIA Document Preparation</a>
-              </p>
             </div>
-            <div class="col-lg-4 col-md-6 mx-auto">
+            <div class="col-lg-4 col-md-6 mx-auto _contacts">
               <h4 class="mt-5 text-start mb-3">Contact</h4>
               <p class="text-start text-center fs-5">
                 <span class="float-start"
@@ -275,10 +262,18 @@
                 <a href="">tame@bloomlind.gmail.com</a>
               </p>
               <p class="mt-4 fs-5">
-                <a href="" class="mx-2"><i class="fa fa-facebook"></i></a>
-                <a href="" class="mx-2"><i class="fa fa-linkedin"></i></a>
-                <a href="" class="mx-2"><i class="fa fa-instagram"></i></a>
-                <a href="" class="mx-2"><i class="fa fa-youtube"></i></a>
+                <a href="" class="mx-2"
+                  ><i class="fa fa-facebook social_icons"></i
+                ></a>
+                <a href="" class="mx-2"
+                  ><i class="fa fa-linkedin social_icons"></i
+                ></a>
+                <a href="" class="mx-2"
+                  ><i class="fa fa-instagram social_icons"></i
+                ></a>
+                <a href="" class="mx-2"
+                  ><i class="fa fa-youtube social_icons"></i
+                ></a>
               </p>
             </div>
           </div>
@@ -287,12 +282,12 @@
       <div
         class="container-fluid text-center d-flex h-100 justify-content-center align-items-center bg-primary p-2"
       >
-        <i class="fa fa-copyright text-white mx-3 fs-4 fw-bold"></i>
-        <span class="text-white fs-4"
+        <i class="fa fa-copyright text-white mx-1 fs-5 fw-bold"></i>
+        <span class="text-white fs-5"
           >BLOOMLINE Consulting and Trading PLC.</span
         >
       </div>
     </footer>
   </body>
-  <script src="./main.js"></script>
+  <script src="./news.js"></script>
 </html>
